@@ -16,42 +16,33 @@ var stop = exports.stop = function stop(callback) {
 app.get('/', function sendResponse(req,res) {
     res.status(200).send('Hello World!');
 });
-var c;
 app.get('/db', function sendResponse(req,res) {
-    //getMessage(1, function(err, msg) {
-       // if(err){
-          //  res.status(404).send("404: Error talking to database ");
-       // }
-       // else{
-            //res.status(200).send(msg);
-            pg.connect(connectionString, function(err, client, done){
-            if(err) {
-                res.status(200).send('ccccc----'+c);
-            }
-            else {
-                client.query("select id,firstname from salesforce2.contact", function(err, result) {
-                    if(err) {
-                        next(undefined);
-                    }
-                    else{
-                        c=result.rows[0].firstname;
-                        next(result.rows[0].firstname);
-			    res.json({"db.host": result.rows[0].firstname,
-        "db.port": result.rows[1].firstname,
-        "db.name": result.rows[2].firstname,
-        "db.user": result.rows[3].firstname,
-        "db.pass": result.rows[4].firstname,
+    getMessage(1, function(err, msg) {
+        if(err){
+            res.status(404).send("404: Error talking to database " + err);
+        }
+        else{
+            res.status(200).send(msg);
+        }
     });
-                        
-                    }
-                });
-            }
-            done();
-               
-        });
-       // }
-    }
-	);
+});
+function getMessage(id, next) {
+    pg.connect(connectionString, function(err, client, done){
+        if(err) {
+            next(err, undefined);
+        }
+        else{
+            client.query("select * from salesforce2.contact", function(err, result) {
+                if(err) {
+                    next(err, undefined);
+                }
+                else {
+                    next(undefined, result.rows[0].firstName);
+                }
+            });
+        }
+    });
+};
 //app.get('/db', function sendResponse(req,res) {
     //res.status(200).send("Database Data Placeholder");
 //});
