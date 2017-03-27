@@ -32,13 +32,15 @@ function getMessage(id, next) {
             next(err, undefined);
         }
         else{
-            client.query("select id,firstname,lastname from salesforce2.contact", function(err, result) {
-                if(err) {
-                    next(err, undefined);
-                }
-                else {
-                    next(undefined, result);
-                }
+            const query = client.query("select id,firstname,lastname from salesforce2.contact;"); {
+                
+                query.on('row', (row) => {
+      results.push(row);
+    });
+                query.on('end', () => {
+      done();
+      return res.json(results);
+    });
             });
         }
     });
