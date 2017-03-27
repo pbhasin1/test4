@@ -10,7 +10,7 @@ var connectionString = 'postgres://zchnevkljossds:3d31d8e87ff40a8f1ae4ef76d24893
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.get('/update', function(req, res) {
+app.get('/getContacts', function(req, res) {
     pg.connect(connectionString, function (err, conn, done) {
         alert('hi');
         // watch for any connect issues
@@ -39,8 +39,4 @@ app.get('/update', function(req, res) {
            
         );
     });
-});
-
-app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
 });
