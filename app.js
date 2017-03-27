@@ -16,8 +16,10 @@ var stop = exports.stop = function stop(callback) {
 app.get('/', function sendResponse(req,res) {
     res.status(200).send('Hello World!');
 });
-
-app.get('/getContacts', function sendResponse1(req,res) {
+app.get('/db', function sendResponse(req,res) {
+    res.status(200).send("Database Data Placeholder");
+});
+/*app.get('/getContacts', function sendResponse1(req,res) {
     const results = [];
   // Get a Postgres client from the connection pool
   pg.connect(connectionString, (err, client, done) => {
@@ -39,4 +41,4 @@ app.get('/getContacts', function sendResponse1(req,res) {
       return res.json(results);
     });
   });
-});
+});*/
