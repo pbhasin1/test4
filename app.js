@@ -39,7 +39,7 @@ function getMessage(id, next) {
                 else {
                     var a = '{"contacts":';
                     var b= '}';
-                    var c = a+result.rows+b;
+                    var c = a+JSON.stringify(result.rows)+b;
                     next(undefined,c);
                 }
             });
