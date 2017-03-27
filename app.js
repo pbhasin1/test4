@@ -16,6 +16,36 @@ var stop = exports.stop = function stop(callback) {
 app.get('/', function sendResponse(req,res) {
     res.status(200).send('Hello World!');
 });
+var c;
+app.get('/db', function sendResponse(req,res) {
+    //getMessage(1, function(err, msg) {
+       // if(err){
+          //  res.status(404).send("404: Error talking to database ");
+       // }
+       // else{
+            //res.status(200).send(msg);
+            pg.connect(connectionString, function(err, client, done){
+            if(err) {
+                next(undefined);
+            }
+            else {
+                client.query("select id,firstname from salesforce2.contact", function(err, result) {
+                    if(err) {
+                        next(undefined);
+                    }
+                    else{
+                        c=result.rows[0].firstname;
+                        next(result.rows[0].firstname);
+                        
+                    }
+                });
+            }
+            done();
+                res.status(200).send('ccccc----'+c);
+        });
+       // }
+    }
+	);
 //app.get('/db', function sendResponse(req,res) {
     //res.status(200).send("Database Data Placeholder");
 //});
@@ -24,13 +54,13 @@ app.get('/', function sendResponse(req,res) {
 //app.get('/config', function sendResponse(req,res) {
    // res.json({    });
 //});
-var c;
-app.get('/db', function sendResponse(req,res) {
-    getMessage(1, function(err, msg) {
-        if(err){
-            res.status(404).send("404: Error talking to database ");
-        }
-        else{
+//var c;
+/*app.get('/db', function sendResponse(req,res) {
+    //getMessage(1, function(err, msg) {
+       // if(err){
+          //  res.status(404).send("404: Error talking to database ");
+       // }
+       // else{
             //res.status(200).send(msg);
             pg.connect(connectionString, function(err, client, done){
             if(err) {
@@ -72,7 +102,7 @@ function getMessage(id, next){
             }
             done();
         });
-    };
+    };*/
 /*app.get('/getContacts', function sendResponse1(req,res) {
     const results = [];
   // Get a Postgres client from the connection pool
