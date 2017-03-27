@@ -11,6 +11,7 @@ router.get('/api/v1/todos', (req, res, next) => {
     if(err) {
       done();
       console.log(err);
+      alert('hi');
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Select Data
