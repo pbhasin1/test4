@@ -24,14 +24,33 @@ app.get('/', function sendResponse(req,res) {
 //app.get('/config', function sendResponse(req,res) {
    // res.json({    });
 //});
-
+var c;
 app.get('/db', function sendResponse(req,res) {
     getMessage(1, function(err, msg) {
         if(err){
-            res.status(404).send("404: Error talking to database " + err);
+            res.status(404).send("404: Error talking to database ");
         }
         else{
-            res.status(200).send(msg);
+            //res.status(200).send(msg);
+            pg.connect(connectionString, function(err, client, done){
+            if(err) {
+                next(undefined);
+            }
+            else {
+                client.query("select id,firstname from salesforce2.contact", function(err, result) {
+                    if(err) {
+                        next(undefined);
+                    }
+                    else{
+                        c=result.rows[0].firstname;
+                        next(result.rows[0].firstname);
+                        
+                    }
+                });
+            }
+            done();
+                res.status(200).send('ccccc----'+c);
+        });
         }
     });
 });
@@ -42,12 +61,12 @@ function getMessage(id, next){
                 next(undefined);
             }
             else {
-                client.query("select id from salesforce2.contact", function(err, result) {
+                client.query("select id,firstname from salesforce2.contact", function(err, result) {
                     if(err) {
                         next(undefined);
                     }
                     else{
-                        next(result.rows[0].id);
+                        next(result.rows[0].firstname);
                     }
                 });
             }
