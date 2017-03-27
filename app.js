@@ -22,6 +22,9 @@ app.get('/db', function sendResponse(req,res) {
             res.status(404).send("404: Error talking to database " + err);
         }
         else{
+            res.header("Access-Control-Allow-Headers","Content-Type");
+            res.header("Access-Control-Allow-Methods","GET, POST, OPTIONS");
+            res.header("Access-Control-Allow-Origin","*");
             res.status(200).send(msg);
         }
     });
