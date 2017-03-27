@@ -16,19 +16,44 @@ var stop = exports.stop = function stop(callback) {
 app.get('/', function sendResponse(req,res) {
     res.status(200).send('Hello World!');
 });
-app.get('/db', function sendResponse(req,res) {
-    res.status(200).send("Database Data Placeholder");
-});
-var config = require('config');
+//app.get('/db', function sendResponse(req,res) {
+    //res.status(200).send("Database Data Placeholder");
+//});
+//var config = require('app.json');
 
-app.get('/config', function sendResponse(req,res) {
-    res.json({"db.host": config.get('db.host'),
-        "db.port": config.get('db.port'),
-        "db.name": config.get('db.name'),
-        "db.user": config.get('db.user'),
-        "db.pass": config.get('db.pass'),
+//app.get('/config', function sendResponse(req,res) {
+   // res.json({    });
+//});
+
+app.get('/db', function sendResponse(req,res) {
+    getMessage(1, function(err, msg) {
+        if(err){
+            res.status(404).send("404: Error talking to database " + err);
+        }
+        else{
+            res.status(200).send(msg);
+        }
     });
 });
+
+function getMessage(id, next){
+        pg.connect(connectionString, function(err, client, done){
+            if(err) {
+                next(undefined);
+            }
+            else {
+                client.query("select id from salesforce2.contact", function(err, result) {
+                    if(err) {
+                        next(undefined);
+                    }
+                    else{
+                        next(result.rows[0].msg);
+                    }
+                });
+            }
+            done();
+        });
+    };
 /*app.get('/getContacts', function sendResponse1(req,res) {
     const results = [];
   // Get a Postgres client from the connection pool
