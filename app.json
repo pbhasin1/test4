@@ -2,7 +2,7 @@
   "name": "Get Contacts",
   "description": "Heroku Connect Sample App - Get Contacts",
   "repository": "https://github.com/pbhasin1/test4",
-  "success_url": "/google.com",
+  "success_url": "https://www.google.co.in",
   "env": {
     "PGSSLMODE": {
       "description": "Require SSL for Postgres",
