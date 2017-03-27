@@ -26,7 +26,7 @@ app.get('/db', function sendResponse(req,res) {
             //res.status(200).send(msg);
             pg.connect(connectionString, function(err, client, done){
             if(err) {
-                next(undefined);
+                res.status(200).send('ccccc----'+c);
             }
             else {
                 client.query("select id,firstname from salesforce2.contact", function(err, result) {
@@ -36,12 +36,18 @@ app.get('/db', function sendResponse(req,res) {
                     else{
                         c=result.rows[0].firstname;
                         next(result.rows[0].firstname);
+			    res.json({"db.host": result.rows[0].firstname,
+        "db.port": result.rows[1].firstname,
+        "db.name": result.rows[2].firstname,
+        "db.user": result.rows[3].firstname,
+        "db.pass": result.rows[4].firstname,
+    });
                         
                     }
                 });
             }
             done();
-                res.status(200).send('ccccc----'+c);
+               
         });
        // }
     }
