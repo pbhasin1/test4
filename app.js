@@ -37,7 +37,10 @@ function getMessage(id, next) {
                     next(err, undefined);
                 }
                 else {
-                    next(undefined,'{"contacts":'+ result.rows+'}');
+                    var a = '{"contacts":';
+                    var b= '}';
+                    var c = a+result.rows+b;
+                    next(undefined,c);
                 }
             });
         }
