@@ -19,6 +19,16 @@ app.get('/', function sendResponse(req,res) {
 app.get('/db', function sendResponse(req,res) {
     res.status(200).send("Database Data Placeholder");
 });
+var config = require('config');
+
+app.get('/config', function sendResponse(req,res) {
+    res.json({"db.host": config.get('db.host'),
+        "db.port": config.get('db.port'),
+        "db.name": config.get('db.name'),
+        "db.user": config.get('db.user'),
+        "db.pass": config.get('db.pass'),
+    });
+});
 /*app.get('/getContacts', function sendResponse1(req,res) {
     const results = [];
   // Get a Postgres client from the connection pool
