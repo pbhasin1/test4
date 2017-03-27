@@ -1,4 +1,4 @@
-/*{
+{
   "name": "Get Contacts",
   "description": "Heroku Connect Sample App - Get Contacts",
   "repository": "https://github.com/pbhasin1/test4",
@@ -9,8 +9,8 @@
       "value": "require"
     }
   }
-}*/
-{
+}
+/*{
     "db": {
         "host": "localhost",
         "port": 5432,
@@ -18,4 +18,4 @@
         "user": "app_ro",
         "pass": "myPassword"
     }
-}
+}*/
