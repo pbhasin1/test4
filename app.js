@@ -32,7 +32,8 @@ function getMessage(id, next) {
             next(err, undefined);
         }
         else{
-            const query = client.query("select id,firstname,lastname from salesforce2.contact;"); {
+            const query = client.query("select id,firstname,lastname from salesforce2.contact"); 
+            //{
                 
                 query.on('row', (row) => {
       results.push(row);
