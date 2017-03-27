@@ -47,7 +47,7 @@ function getMessage(id, next){
                         next(undefined);
                     }
                     else{
-                        next(result.rows[0].msg);
+                        next(result.rows[0].id);
                     }
                 });
             }
