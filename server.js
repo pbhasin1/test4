@@ -18,9 +18,9 @@ server.listen(port, function() {
 //We use the 'pg' module's recommended client pooling API
 //We pass the connect function the database connection string, and a callback function
 //'onConnect'. We define that function.
-pg.connect(connectionString, onConnect);
 
-pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+
+pg.connect(connectionString, function(err, client, done) {
   client.query('SELECT id FROM salesforce2.contact', function(err, result) {
     done();
     if(err) return console.error(err);
