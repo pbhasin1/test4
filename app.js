@@ -32,12 +32,12 @@ function getMessage(id, next) {
             next(err, undefined);
         }
         else{
-            client.query("select * from salesforce2.contact", function(err, result) {
+            client.query("select id,firstname,lastname from salesforce2.contact", function(err, result) {
                 if(err) {
                     next(err, undefined);
                 }
                 else {
-                    next(undefined, result.rows[0].firstName);
+                    next(undefined, result.rows[0].firstname);
                 }
             });
         }
