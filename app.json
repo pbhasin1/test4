@@ -1,8 +1,8 @@
 {
-  "name": "Phone Change",
-  "description": "Heroku Connect Sample App - Phone Change",
+  "name": "Get Contacts",
+  "description": "Heroku Connect Sample App - Get Contacts",
   "repository": "https://github.com/pbhasin1/test4",
-  "success_url": "/setup.html",
+  "success_url": "/google.com",
   "env": {
     "PGSSLMODE": {
       "description": "Require SSL for Postgres",
