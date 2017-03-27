@@ -37,7 +37,7 @@ function getMessage(id, next) {
                     next(err, undefined);
                 }
                 else {
-                    next(undefined,"{"contacts":"+ result.rows+"}");
+                    next(undefined,'{"contacts":'+ result.rows+'}');
                 }
             });
         }
