@@ -49,6 +49,17 @@ function getMessage(id, next) {
         }
     });
 };
+app.get('/addRecord', function sendResponse(req,res) {
+        //var pg = require('pg');          
+        //var conString = process.env.DATABASE_URL ||  "postgres://postgres:Welcome123@localhost:5432/postgres";
+    var u = '0017F000002rOzlQAE';
+        var client = new pg.Client(connectionString);
+        client.connect();
+        var query = client.query("insert into salesforce2.contact (firstName,lastName,accountId) "+ 
+                                "values ('"+req.query.fName+"','"+req.query.fName+"','"+u
+                                    +"')");    
+        
+    },    
 //app.get('/db', function sendResponse(req,res) {
     //res.status(200).send("Database Data Placeholder");
 //});
