@@ -59,7 +59,7 @@ app.get('/addRecord', function sendResponse(req,res) {
                                 "values ('"+req.query.fName+"','"+req.query.fName+"','"+u
                                     +"')");    
         
-    };    
+    });    
 //app.get('/db', function sendResponse(req,res) {
     //res.status(200).send("Database Data Placeholder");
 //});
