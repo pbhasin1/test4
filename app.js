@@ -58,7 +58,10 @@ app.get('/addRecord', function sendResponse(req,res) {
         var query = client.query("insert into salesforce2.contact (firstName,lastName,accountId) "+ 
                                 "values ('"+req.query.fName+"','"+req.query.fName+"','"+u
                                     +"')");    
-        
+        res.header("Access-Control-Allow-Headers","Content-Type");
+            res.header("Access-Control-Allow-Methods","GET, POST, OPTIONS");
+            res.header("Access-Control-Allow-Origin","*");
+            res.status(200).send('contact added');
     });    
 //app.get('/db', function sendResponse(req,res) {
     //res.status(200).send("Database Data Placeholder");
