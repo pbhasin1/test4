@@ -3,7 +3,7 @@ var express = require('express');
 var pg = require('pg');
 var app = express();
 var server;
-var connectionString = 'postgres://zchnevkljossds:3d31d8e87ff40a8f1ae4ef76d24893a6b7de7f2584d7c5994b67c39b7db665db@ec2-54-225-67-3.compute-1.amazonaws.com:5432/d4u4oil2mtd4f6';
+var connectionString = 'postgres://tijurpxfuncvvn:4d844b13e61da666b5055e284a696e75d6c8e41033dc2098cdb352f8708b4a64@ec2-54-243-185-123.compute-1.amazonaws.com:5432/d5q988qc4a2f8a';
 
 var start = exports.start = function start(port, callback) {
     server = app.listen(port, callback);
@@ -35,7 +35,7 @@ function getMessage(id, next) {
             next(err, undefined);
         }
         else{
-            const query = client.query("select id,firstname,lastname from salesforce2.contact", function(err, result) {
+            const query = client.query("select name, Id,SFID,ParentId, RecordTypeId from salesforce34.account where parentId = '0017F000003o5rRQAQ'", function(err, result) {
                 if(err) {
                     next(err, undefined);
                 }
