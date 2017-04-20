@@ -53,6 +53,7 @@ app.get('/addRecord', function sendResponse(req,res) {
         //var pg = require('pg');          
         //var conString = process.env.DATABASE_URL ||  "postgres://postgres:Welcome123@localhost:5432/postgres";
     var u = '0017F000003o5rRQAQ';
+    var No = 'No';
         var client = new pg.Client(connectionString);
         client.connect();
         var query = client.query("insert into salesforce34.account (Name,Active__c,ParentId) "+ 
