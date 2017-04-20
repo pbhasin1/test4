@@ -55,9 +55,9 @@ app.get('/addRecord', function sendResponse(req,res) {
     var u = '0017F000003o5rRQAQ';
         var client = new pg.Client(connectionString);
         client.connect();
-        var query = client.query("insert into salesforce34.account (Name,Active__c,ParentId,SLA__c) "+ 
+        var query = client.query("insert into salesforce34.account (Name,Active__c,ParentId) "+ 
                                 "values ('"+req.query.fName+"','"+true+"','"+u
-                                    +"','"+silver+"')");    
+                                    +"')");    
         res.header("Access-Control-Allow-Headers","Content-Type");
             res.header("Access-Control-Allow-Methods","GET, POST, OPTIONS");
             res.header("Access-Control-Allow-Origin","*");
