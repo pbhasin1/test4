@@ -35,7 +35,7 @@ function getMessage(id, next) {
             next(err, undefined);
         }
         else{
-            const query = client.query("select name, Id,SFID,ParentId, RecordTypeId from salesforce34.account where parentId = '0017F000003o5rRQAQ'", function(err, result) {
+            const query = client.query("select name, Id,SFID,ParentId,Site,RecordTypeId from salesforce34.account where parentId = '0017F000003o5rRQAQ'", function(err, result) {
                 if(err) {
                     next(err, undefined);
                 }
