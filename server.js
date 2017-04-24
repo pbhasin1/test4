@@ -1,4 +1,4 @@
-var express = require('express', template = require('pug'));
+var express = require('express');
 var session = require('express-session')
 var util = require('util');
 var oauth = require('oauth');
@@ -16,7 +16,7 @@ var app = express();
 //}
 
 // Template engine (previously known as Jade)
-var pug = require('pug');
+
 
 // This loads your consumer key and secret from a file you create.
 //var config = require('./config.json');
@@ -91,16 +91,13 @@ app.get('/callback', function(req, res){
 
 app.get('/signed_in', function(req, res){
 
-  var template = "./template/signedIn.pug"
-  var options = {}
-  var html = pug.renderFile(template, options)
-  res.status(200).send(html)
+  alert('logged in');
 
    // 'Signing in by OAuth worked. Now you can do API calls on private data like this: <br><a href="/getMyAccounts">Get My Accounts</a> <br><a href="/getCurrentUser">Get Current User</a> <br><a href="/createTransactionRequest">Create Transaction Request (make payment)</a> <br> <a href="/loadCustomers">Load Customers (this is an admin utility function) </a> <br>  <br> Please see the <a href="https://apiexplorersandbox.openbankproject.com">API Explorer</a> for the full list of API calls available.')
 });
 
 
-app.get('/getCurrentUser', function(req, res){
+/*app.get('/getCurrentUser', function(req, res){
   consumer.get(apiHost + "/obp/v2.1.0/users/current",
   req.session.oauthAccessToken,
   req.session.oauthAccessTokenSecret,
