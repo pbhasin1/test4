@@ -56,7 +56,7 @@ app.use(session({
 }));
 
 
-app.get('/connect', function(req, res){
+app.get('/', function(req, res){
   consumer.getOAuthRequestToken(function(error, oauthToken, oauthTokenSecret, results){
     if (error) {
       res.status(500).send("Error getting OAuth request token : " + util.inspect(error));
@@ -95,7 +95,7 @@ app.get('/signed_in', function(req, res){
 
    // 'Signing in by OAuth worked. Now you can do API calls on private data like this: <br><a href="/getMyAccounts">Get My Accounts</a> <br><a href="/getCurrentUser">Get Current User</a> <br><a href="/createTransactionRequest">Create Transaction Request (make payment)</a> <br> <a href="/loadCustomers">Load Customers (this is an admin utility function) </a> <br>  <br> Please see the <a href="https://apiexplorersandbox.openbankproject.com">API Explorer</a> for the full list of API calls available.')
 });
-
+app.start(process.env.PORT || 3000);
 
 /*app.get('/getCurrentUser', function(req, res){
   consumer.get(apiHost + "/obp/v2.1.0/users/current",
