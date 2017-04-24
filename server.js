@@ -45,7 +45,7 @@ var consumer = new oauth.OAuth(
   _openbankConsumerKey,
   _openbankConsumerSecret,
   '1.0',                             //rfc oauth 1.0, includes 1.0a
-  'http://127.0.0.1:8085/callback',
+  'www.google.com',
   'HMAC-SHA1');
 
 var cookieParser = require('cookie-parser');
@@ -55,7 +55,13 @@ app.use(session({
   saveUninitialized: true
 }));
 
+var start = exports.start = function start(port, callback) {
+    server = app.listen(port, callback);
+};
 
+var stop = exports.stop = function stop(callback) {
+    server.close(callback);
+};
 app.get('/', function(req, res){
   consumer.getOAuthRequestToken(function(error, oauthToken, oauthTokenSecret, results){
     if (error) {
