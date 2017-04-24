@@ -4,7 +4,7 @@ var util = require('util');
 var oauth = require('oauth');
 
 var app = express();
-console.log('line 7');
+console.log("line 7")
 // To get the values for the following fields, please register your client here:
 // https://apisandbox.openbankproject.com/consumer-registration
 // Then create a file called config.json in this directory 
