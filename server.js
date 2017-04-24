@@ -1,6 +1,6 @@
 var app = require('./app');
 var http = require('http');
-var OAuth = require('../oauth.js').OAuth;
+var OAuth = require('./oauth-1.0a.js').OAuth;
 var nodeUrl = require('url');
 var clientID = '5m5nwqmjremo0kqe4p1ztu3xme5tgrkrqxaomayq';
 var clientSecret = 'uzvua0aafhpv0crr01cevmeeddngyuptwlppmaji';
