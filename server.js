@@ -4,7 +4,7 @@ var util = require('util');
 var oauth = require('oauth');
 
 var app = express();
-console.log("line 7")
+
 // To get the values for the following fields, please register your client here:
 // https://apisandbox.openbankproject.com/consumer-registration
 // Then create a file called config.json in this directory 
@@ -35,9 +35,6 @@ var _openbankConsumerSecret = 'uzvua0aafhpv0crr01cevmeeddngyuptwlppmaji';
 
 // The location, on the interweb, of the OBP API server we want to use.
 var apiHost = 'https://apisandbox.openbankproject.com';
-
-console.log ("apiHost is: " + apiHost)
-
 
 var consumer = new oauth.OAuth(
   apiHost + '/oauth/initiate',
