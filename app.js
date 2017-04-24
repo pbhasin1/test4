@@ -66,7 +66,7 @@ app.get('/addRecord', function sendResponse(req,res) {
             res.header("Access-Control-Allow-Origin","*");
             res.status(200).send('contact added');
     });
-var expect  = require('chai').expect;
+/*var expect  = require('chai').expect;
 var Request = require('request');
 var OAuth   = require('../../oauth-1.0a');
 var crypto = require('crypto');
@@ -115,17 +115,17 @@ describe.skip("Openbank Personal Consumer", function() {
         });
     });
 });
-
-/*var http = require('http');
+*/
+var http = require('http');
 var OAuth = require('../oauth.js').OAuth;
 var nodeUrl = require('url');
-var clientID = '';
-var clientSecret = '';
-var callbackURL = '';
+var clientID = '5m5nwqmjremo0kqe4p1ztu3xme5tgrkrqxaomayq';
+var clientSecret = 'uzvua0aafhpv0crr01cevmeeddngyuptwlppmaji';
+var callbackURL = 'www.google.com';
 
 oa = new OAuth(
-    'https://api.twitter.com/oauth/request_token',
-    'https://api.twitter.com/oauth/access_token',
+    'https://apisandbox.openbankproject.com/oauth/initiate',
+    'https://apisandbox.openbankproject.com/oauth/initiate',
     clientID,
     clientSecret,
     '1.0',
@@ -161,7 +161,7 @@ http.createServer(function (request, response) {
                         return;
                     }
 
-                    oa.get('https://apisandbox.openbankproject.com/oauth/initiate',
+                    oa.get('https://apisandbox.openbankproject.com/oauth/token',
                            oAuthAccessToken,
                            oAuthAccessTokenSecret,
                            function (error, twitterResponseData, result) {
@@ -189,7 +189,7 @@ http.createServer(function (request, response) {
         handlers[urlObj.pathname](request, response);
     })
 
-}).listen(3000);*/
+}).listen(3000);
 /*app.get('/oauthMethod', function sendResponse(req,res) {
 var oauth = OAuth({
     consumer: {
