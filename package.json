@@ -16,7 +16,7 @@
   }
 }*/
 {
-  "name": "Hello-OBP-OAuth1.0a-Node",
+  "name": "get-contacts",
   "version": "1.0.0",
   "description": "Examples to illustrate creating / using an OAuth connection to the Open Bank Project API",
   "main": "oauth.js",
@@ -31,6 +31,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   }  
 }
