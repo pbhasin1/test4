@@ -115,7 +115,7 @@ describe.skip("Openbank Personal Consumer", function() {
         });
     });
 });
-*//*
+*/
 var http = require('http');
 var OAuth = require('../oauth.js').OAuth;
 var nodeUrl = require('url');
@@ -132,7 +132,7 @@ oa = new OAuth(
     callbackURL,
     'HMAC-SHA1'
 );
-
+/*
 http.createServer(function (request, response) {
     oa.getOAuthRequestToken(function (error, oAuthToken, oAuthTokenSecret, results) {
         var urlObj = nodeUrl.parse(request.url, true);
