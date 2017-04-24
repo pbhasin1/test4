@@ -54,12 +54,26 @@ app.get('/', function(req, res){
     } else {
       req.session.oauthRequestToken = oauthToken;
       req.session.oauthRequestTokenSecret = oauthTokenSecret;
-      res.redirect(apiHost + "/oauth/authorize?oauth_token="+req.session.oauthRequestToken);
+req.session.oauthRequestToken,
+    req.session.oauthRequestTokenSecret,
+    req.query.oauth_verifier,
+    function(error, oauthAccessToken, oauthAccessTokenSecret, result) {
+      if (error) {
+        //oauthAccessToken, -Secret and result are now undefined
+        res.status(500).send("Error getting OAuth access token : " + util.inspect(error));
+      } else {
+        //error is now undefined
+        req.session.oauthAccessToken = oauthAccessToken;
+        req.session.oauthAccessTokenSecret = oauthAccessTokenSecret;
+        res.redirect('/signed_in');
+      }
+    }
+      //res.redirect(apiHost + "/oauth/authorize?oauth_token="+req.session.oauthRequestToken);
     }
   });
 });
 
-
+/*
 app.get('/callback', function(req, res){
   consumer.getOAuthAccessToken(
     req.session.oauthRequestToken,
@@ -77,7 +91,7 @@ app.get('/callback', function(req, res){
       }
     }
   );
-});
+});*/
 
 
 app.get('/signed_in', function(req, res){
