@@ -21,12 +21,7 @@ var app = express();
 // This loads your consumer key and secret from a file you create.
 //var config = require('./config.json');
 
-// Used to validate forms
-var bodyParser = require('body-parser')
 
-
-// create application/x-www-form-urlencoded parser 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 var _openbankConsumerKey = '5m5nwqmjremo0kqe4p1ztu3xme5tgrkrqxaomayq';
@@ -52,13 +47,6 @@ app.use(session({
   saveUninitialized: true
 }));
 
-var start = exports.start = function start(port, callback) {
-    server = app.listen(port, callback);
-};
-
-var stop = exports.stop = function stop(callback) {
-    server.close(callback);
-};
 app.get('/', function(req, res){
   consumer.getOAuthRequestToken(function(error, oauthToken, oauthTokenSecret, results){
     if (error) {
