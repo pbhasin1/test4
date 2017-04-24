@@ -37,7 +37,7 @@ var consumer = new oauth.OAuth(
   _openbankConsumerKey,
   _openbankConsumerSecret,
   '1.0',                             //rfc oauth 1.0, includes 1.0a
-  'www.google.com',
+  'http://127.0.0.1:8085/callback',
   'HMAC-SHA1');
 
 var cookieParser = require('cookie-parser');
