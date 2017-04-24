@@ -115,7 +115,7 @@ describe.skip("Openbank Personal Consumer", function() {
         });
     });
 });
-*/
+*//*
 var http = require('http');
 var OAuth = require('../oauth.js').OAuth;
 var nodeUrl = require('url');
