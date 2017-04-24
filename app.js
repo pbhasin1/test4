@@ -80,7 +80,6 @@ var oauth = OAuth({
         return crypto.createHmac('sha1', key).update(base_string).digest('base64');
     }
 });
-app.get('/oAuthMethod', function sendResponse(req,res) {
 var request_data = {
     url: 'https://apisandbox.openbankproject.com/oauth/initiate',
     method: 'POST',
@@ -88,6 +87,8 @@ var request_data = {
         
     }
 };
+app.get('/oAuthMethod', function sendResponse(req,res) {
+
 request({
     url: 'https://apisandbox.openbankproject.com/oauth/authorize?oauth_token=',
     method: request_data.method,
