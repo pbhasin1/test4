@@ -91,4 +91,4 @@ app.get('/signed_in', function(req, res){
 app.get('*', function(req, res){
   res.redirect('/connect');
 });
-app.listen(8085);
+app.listen(process.env.PORT || 3000);
