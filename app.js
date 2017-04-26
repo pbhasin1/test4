@@ -116,6 +116,10 @@ describe.skip("Openbank Personal Consumer", function() {
     });
 });
 */
+
+
+/*
+
 var http = require('http');
 var OAuth = require('oauth-1.0a.js').OAuth;
 var nodeUrl = require('url');
@@ -123,7 +127,7 @@ var clientID = '5m5nwqmjremo0kqe4p1ztu3xme5tgrkrqxaomayq';
 var clientSecret = 'uzvua0aafhpv0crr01cevmeeddngyuptwlppmaji';
 var callbackURL = 'www.google.com';
 
-/*oa = new OAuth(
+oa = new OAuth(
     'https://apisandbox.openbankproject.com/oauth/initiate',
     'https://apisandbox.openbankproject.com/oauth/initiate',
     clientID,
