@@ -5,7 +5,7 @@ var app = express();
 var server;
 var crypto = require('crypto'); 
 
-var connectionString = 'postgres://tijurpxfuncvvn:4d844b13e61da666b5055e284a696e75d6c8e41033dc2098cdb352f8708b4a64@ec2-54-243-185-123.compute-1.amazonaws.com:5432/d5q988qc4a2f8a';
+var connectionString = 'postgres://eptcbxyuxcctev:f21325c065fb3be7ba777791f8c45860f28bb6160d855b7c42a470c8d989ea41@ec2-54-163-252-55.compute-1.amazonaws.com:5432/d19d61pq097bu0';
 
 var start = exports.start = function start(port, callback) {
     server = app.listen(port, callback);
