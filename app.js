@@ -56,11 +56,12 @@ app.get('/addRecord', function sendResponse(req,res) {
         //var conString = process.env.DATABASE_URL ||  "postgres://postgres:Welcome123@localhost:5432/postgres";
     var u = '0017F000003o5rRQAQ';
     var No = 'No';
+    
         var client = new pg.Client(connectionString);
         client.connect();
-        var query = client.query("insert into salesforce34.account (Name,Active__c,ParentId) "+ 
-                                "values ('"+req.query.fName+"','"+No+"','"+u
-                                    +"')");    
+        var query = client.query("insert into salesforce34.account (Name,Active__c,ParentId,Site) "+ 
+                                "values ('"+req.query.fName+"','"+Yes+"','"+u
+                                    +"','"+req.query.bankname+"')");    
         res.header("Access-Control-Allow-Headers","Content-Type");
             res.header("Access-Control-Allow-Methods","GET, POST, OPTIONS");
             res.header("Access-Control-Allow-Origin","*");
