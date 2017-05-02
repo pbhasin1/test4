@@ -60,7 +60,7 @@ app.get('/addRecord', function sendResponse(req,res) {
         var client = new pg.Client(connectionString);
         client.connect();
         var query = client.query("insert into salesforce34.account (Name,Active__c,ParentId,Site) "+ 
-                                "values ('"+req.query.fName+"','"+Yes+"','"+u
+                                "values ('"+req.query.fName+"','"+No+"','"+u
                                     +"','"+req.query.bankname+"')");    
         res.header("Access-Control-Allow-Headers","Content-Type");
             res.header("Access-Control-Allow-Methods","GET, POST, OPTIONS");
